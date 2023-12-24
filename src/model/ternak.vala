@@ -8,7 +8,7 @@ public class Ternak {
     public float gender;
     public string tempat_lahir;
 
-    public Ternak (string nama, string umur, float berat, float gender, string tempat_lahir) {
+    public Ternak (int id, string nama, string umur, float berat, float gender, string tempat_lahir) {
         this.nama = nama;
         this.umur = umur;
         this.berat = berat;

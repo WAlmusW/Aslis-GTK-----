@@ -7,8 +7,8 @@ public class Kandang {
         list_ternak = new ArrayList<Ternak>();
     }
 
-    public void add (string nama, string umur, int berat, int gender, string tempat_lahir) {
-        Ternak ternak = new Ternak(nama, umur, berat, gender, tempat_lahir);
+    public void add (int id, string nama, string umur, float berat, float gender, string tempat_lahir) {
+        Ternak ternak = new Ternak(id, nama, umur, berat, gender, tempat_lahir);
         list_ternak.add(ternak);
     }
 
