@@ -21,7 +21,7 @@
 namespace AslisGtk {
     public class Application : Gtk.Application {
         public Application () {
-            Object (application_id: "aslis.dpbo.id", flags: (GLib.ApplicationFlags) 0);
+            Object (application_id: "aslis.dpbo.id", flags: ApplicationFlags.FLAGS_NONE);
         }
 
         construct {
@@ -38,7 +38,8 @@ namespace AslisGtk {
             base.activate ();
             var win = this.active_window;
             if (win == null) {
-                win = new AslisGtk.Window (this);
+                //  win = new AslisGtk.Window (this);
+                win = new AslisGtk.AuthWindow (this);
             }
             win.present ();
         }
