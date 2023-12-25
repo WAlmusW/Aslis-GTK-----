@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk" version="4.0"/>
-  <template class="AslisGtkAuthWindow" parent="GtkApplicationWindow">
+  <template class="AslisGtkAslisApp" parent="GtkApplicationWindow">
     <property name="default-width">1500</property>
     <property name="default-height">900</property>
     <property name="titlebar">
@@ -18,6 +18,9 @@
     </property>
     <property name="child">
       <object class="GtkStack" id="pages">
+
+
+      <!-- Login Page -->
         <child>
           <object class="GtkStackPage" id="loginPage">
             <property name="name">login</property>
@@ -141,6 +144,9 @@
             </property>
           </object>
         </child>
+
+
+        <!-- Register Page -->
         <child>
           <object class="GtkStackPage" id="registerPage">
             <property name="name">register</property>
@@ -264,6 +270,9 @@
             </property>
           </object>
         </child>
+
+
+        <!-- Window Page -->
         <child>
           <object class="GtkStackPage" id="windowPage">
             <property name="name">window</property>

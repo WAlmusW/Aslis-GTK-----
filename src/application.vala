@@ -39,7 +39,7 @@ namespace AslisGtk {
             var win = this.active_window;
             if (win == null) {
                 //  win = new AslisGtk.Window (this);
-                win = new AslisGtk.AuthWindow (this);
+                win = new AslisGtk.AslisApp (this);
             }
             win.present ();
         }

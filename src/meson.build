@@ -1,11 +1,13 @@
 aslis_gtk_sources = [
   'main.vala',
   'application.vala',
-  'pages/auth.vala',
+  'pages/aslis_app.vala',
   'pages/window.vala',
   'model/ternak.vala',
   'model/kandang.vala',
   'model/sample.vala',
+  'model/login.vala',
+  'model/register.vala',
 ]
 
 aslis_gtk_deps = [
