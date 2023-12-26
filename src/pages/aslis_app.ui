@@ -29,12 +29,6 @@
               <object class="GtkBox">
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkButton" id="backButton">
-                    <property name="name">back-button</property>
-                    <property name="label">Back</property>
-                  </object>
-                </child>
-                <child>
                   <object class="GtkButton" id="addButton">
                     <property name="name">add-button</property>
                     <property name="label">Add your new Ternak here</property>
