@@ -1,4 +1,4 @@
-// login.vala
+// aslis_app.vala
 using Gtk;
 using GLib;
 
@@ -23,8 +23,8 @@ namespace AslisGtk {
         private unowned Gtk.StackPage homePage;
         [GtkChild]
         private unowned Gtk.StackPage listTernakPageEmpty;
-        [GtkChild]
-        private unowned Gtk.StackPage tambahTernakPage;
+        //  [GtkChild]
+        //  private unowned Gtk.StackPage tambahTernakPage;
         [GtkChild]
         private unowned Gtk.StackPage windowPage;
 
@@ -52,6 +52,10 @@ namespace AslisGtk {
         [GtkChild]
         private unowned Gtk.Button registerButton;
 
+        // List Ternak Page Widget
+        [GtkChild]
+        private unowned Gtk.Button addButton;
+
         public AslisApp (Gtk.Application app) {
             var cssProvider = new Gtk.CssProvider ();
             cssProvider.load_from_resource ("/aslis/dpbo/id/style/aslis_app.css");
@@ -70,7 +74,7 @@ namespace AslisGtk {
             loginPage.set_name("loginPage");
             homePage.set_name("homePage");
             listTernakPageEmpty.set_name("listTernakPageEmpty");
-            tambahTernakPage.set_name("tambahTernakPage");
+            //  tambahTernakPage.set_name("tambahTernakPage");
             windowPage.set_name("windowPage");
 
             // Event Listener
@@ -101,6 +105,8 @@ namespace AslisGtk {
                     }
                 }
             });
+
+            addButton.clicked.connect (add_button_handler);
         }
 
         public bool build_grid () {
@@ -110,6 +116,9 @@ namespace AslisGtk {
             Gtk.Box box = new Gtk.Box(Gtk.Orientation.VERTICAL, 3);
             Gtk.Button back_btn = new Gtk.Button.with_label("Back");
             back_btn.clicked.connect(back_btn_handler);
+            Gtk.Button add_button = new Gtk.Button.with_label("Tambah Ternak");
+            add_button.clicked.connect(add_button_handler);
+
             GLib.ListStore? model = GridTernakModel.readTernak(UserName);
             if (model != null) {
                 Gtk.GridView grid_ternak = new Gtk.GridView(new Gtk.NoSelection(model), new Gtk.BuilderListItemFactory.from_resource(null, "/aslis/dpbo/id/pages/grid.ui"));
@@ -118,6 +127,7 @@ namespace AslisGtk {
     
                 // Add the GridView to the window
                 box.append(back_btn);
+                box.append(add_button);
                 box.append(grid_ternak);
                 swin.set_child(box);
                 
@@ -129,6 +139,14 @@ namespace AslisGtk {
         private void back_btn_handler() {
             pages.set_visible_child_name("");
             pages.set_visible_child_name("listTernakPage");
+        }
+
+        private void add_button_handler() {
+            var modalWin = new AslisGtk.AddTernakModal (UserName, this);
+            modalWin.set_modal(true);
+            modalWin.set_resizable(false);
+            modalWin.set_default_size(1000, 750);
+            modalWin.present();
         }
 
         private bool checkLogin () {
@@ -156,13 +174,13 @@ namespace AslisGtk {
             string password = passwordEntry_register.text;
     
             if ((username == null || username.length == 0) || (password == null || password.length == 0)) {
-                resultLabel.set_label("Username and password are required!");
+                resultLabel_register.set_label("Username and password are required!");
                 return false;
             }
     
             // Check if the account already exists
             if (RegisterModel.accountExists(username)) {
-                resultLabel.set_label("Account already exists. Choose a different username.");
+                resultLabel_register.set_label("Account already exists. Choose a different username.");
                 return false;
             }
     

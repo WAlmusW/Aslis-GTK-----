@@ -3,6 +3,7 @@ aslis_gtk_sources = [
   'application.vala',
   'pages/aslis_app.vala',
   'pages/window.vala',
+  'pages/add_modal.vala',
   'model/ternak.vala',
   'model/kandang.vala',
   'model/sample.vala',
