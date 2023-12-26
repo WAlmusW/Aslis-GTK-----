@@ -16,7 +16,7 @@
 }
 
 .ternak{
-    background-color: #fff;
+    background-color: #52834b;
     margin-top: 10px;
     margin-bottom: 30px;
     margin-left: 20px;
@@ -28,7 +28,20 @@
     padding-right: 20px;
 }
 
-GtkButton{
+.grid_box{
+    color: #041B15;
+    border-radius: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.grid_item{
+    color: black;
+}
+
+button{
     background-image: none;
 }
 
@@ -54,9 +67,7 @@ GtkButton{
 }
 
 .kambing {
-    margin: auto;
     padding-top: 50px;
-    display: block;
     opacity: 0.5;
 }
 

@@ -53,7 +53,7 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="backButton">
+                          <object class="GtkButton" id="refreshButton">
                             <style>
                               <class name="refresh" />
                             </style>

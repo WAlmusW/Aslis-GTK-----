@@ -15,14 +15,14 @@ namespace AslisGtk {
         private unowned Gtk.Stack pages;
         [GtkChild]
         private unowned Gtk.StackPage listTernakPageEmpty;
-        //  [GtkChild]
-        //  private unowned Gtk.StackPage tambahTernakPage;
         [GtkChild]
         private unowned Gtk.StackPage windowPage;
 
         // List Ternak Page Widget
         [GtkChild]
         private unowned Gtk.Button addButton;
+        [GtkChild]
+        private unowned Gtk.Button refreshButton;
         
 
         public AslisApp (Gtk.Application app) {
@@ -38,7 +38,6 @@ namespace AslisGtk {
 
             // Set name for each pages
             listTernakPageEmpty.set_name("listTernakPageEmpty");
-            //  tambahTernakPage.set_name("tambahTernakPage");
             windowPage.set_name("windowPage");
 
             Gtk.Box blank = new Gtk.Box(Gtk.Orientation.VERTICAL, 1);
@@ -51,6 +50,8 @@ namespace AslisGtk {
             }
 
             addButton.clicked.connect (add_button_handler);
+
+            refreshButton.clicked.connect (refresh_handler);
         }
 
         bool file_exists(string filePath) {
@@ -94,8 +95,8 @@ namespace AslisGtk {
             GLib.ListStore? model = GridTernakModel.readTernak();
             if (model != null) {
                 Gtk.GridView grid_ternak = new Gtk.GridView(new Gtk.NoSelection(model), new Gtk.BuilderListItemFactory.from_resource(null, "/aslis/dpbo/id/pages/grid.ui"));
-                grid_ternak.set_min_columns(1);
-                grid_ternak.set_max_columns(1);
+                grid_ternak.set_min_columns(2);
+                grid_ternak.set_max_columns(2);
                 grid_ternak.add_css_class("grid_ternak");
     
                 // Add the GridView to the window
@@ -129,12 +130,6 @@ namespace AslisGtk {
             modalWin.set_resizable(false);
             modalWin.set_default_size(1000, 750);
             modalWin.present();
-
-            modalWin.close_request.connect(() => {
-                refresh_handler ();
-                modalWin.destroy();
-                return true;
-            });
         }
 
         public void refresh_handler () {
@@ -142,7 +137,7 @@ namespace AslisGtk {
             if (pages.get_child_by_name ("listTernakPage") != null) {
                 pages.remove(pages.get_child_by_name ("listTernakPage"));
             }
-            if (this.build_grid()) {
+            if (build_grid()) {
                 pages.set_visible_child_name("listTernakPage");
             } else {
                 pages.set_visible_child_name("listTernakPageEmpty");

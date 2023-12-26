@@ -33,8 +33,17 @@ namespace AslisGtk {
 
         public void populateModel (string[] fields) {
             message (@"%s - %s".printf(fields[0], fields[1]));
-            string item = @"%s %s\n%s Tahun - %s kg - %s - %s".printf(fields[0], fields[1], fields[2], fields[3], fields[4], fields[5]);
-            this.model.append(new Gtk.Label(item));
+            string title = "ID %s - %s".printf(fields[0], fields[1]);
+            string detail = "- Umur %s Tahun\n- Berat %s kg\n- Kelamin %s\n- Tempat Lahir %s".printf(fields[2], fields[3], fields[4], fields[5]);
+
+            Gtk.Label labelTitle = new Gtk.Label(title);
+            Gtk.Label labelDetail = new Gtk.Label(detail);
+
+            labelTitle.add_css_class ("grid_item_title");
+            labelDetail.add_css_class ("grid_item_detail");
+
+            this.model.append(labelTitle);
+            this.model.append(labelDetail);
         }
     }
 }
