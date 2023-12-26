@@ -7,5 +7,6 @@
     <file preprocess="xml-stripblanks">pages/add_modal.ui</file>
     <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
     <file>style/aslis_app.css</file>
+    <file>style/add_modal.css</file>
   </gresource>
 </gresources>
