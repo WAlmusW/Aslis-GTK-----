@@ -1,0 +1,6 @@
+data/aslis.dpbo.id.desktop.in
+data/aslis.dpbo.id.metainfo.xml.in
+data/aslis.dpbo.id.gschema.xml
+src/main.vala
+src/window.vala
+src/window.ui

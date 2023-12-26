@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/aslis/dpbo/id">
+    <file preprocess="xml-stripblanks">pages/grid.ui</file>
+    <file preprocess="xml-stripblanks">pages/window.ui</file>
+    <file preprocess="xml-stripblanks">pages/aslis_app.ui</file>
+    <file preprocess="xml-stripblanks">pages/add_modal.ui</file>
+    <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
+    <file>style/aslis_app.css</file>
+    <file>style/add_modal.css</file>
+  </gresource>
+</gresources>

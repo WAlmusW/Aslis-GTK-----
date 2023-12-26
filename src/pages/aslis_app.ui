@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="AslisGtkAslisApp" parent="GtkApplicationWindow">
+    <property name="default-width">1500</property>
+    <property name="default-height">900</property>
+    <property name="titlebar">
+      <object class="GtkHeaderBar" id="header_bar">
+        <child type="end">
+          <object class="GtkMenuButton">
+            <property name="primary">True</property>
+            <property name="icon-name">open-menu-symbolic</property>
+            <property name="tooltip-text" translatable="yes">Menu</property>
+            <property name="menu-model">primary_menu</property>
+          </object>
+        </child>
+      </object>
+    </property>
+    <property name="child">
+      <object class="GtkStack" id="pages">
+
+
+        <!-- List Ternak Page -->
+        <child>
+          <object class="GtkStackPage" id="listTernakPageEmpty">
+            <property name="name">list_ternak_empty</property>
+            <property name="title">List Ternak</property>
+            <property name="child">
+              <object class="GtkBox">
+                <style>
+                  <class name="body" />
+                </style>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkBox">
+                    <style>
+                      <class name="main" />
+                    </style>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkBox">
+                        <style>
+                          <class name="buttons" />
+                        </style>
+                        <property name="orientation">horizontal</property>
+                        <child>
+                          <object class="GtkButton" id="addButton">
+                            <style>
+                              <class name="tambah_ternak" />
+                            </style>
+                            <property name="name">add-button</property>
+                            <property name="label">Add your new Ternak here</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="backButton">
+                            <style>
+                              <class name="refresh" />
+                            </style>
+                            <property name="name">refresh-button</property>
+                            <property name="label">Refresh</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  <child>
+                    <object class="GtkImage">
+                      <style>
+                        <class name="kambing"/>
+                      </style>
+                      <property name="visible">true</property>
+                      <property name="file">/home/misterxd/Downloads/Aslis-GTK------main/src/images/ternak.png</property> <!-- Replace with your image file path -->
+                      <property name="width-request">500</property> <!-- Adjust the width as needed -->
+                      <property name="height-request">500</property>
+                    </object>
+                  </child>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </child>
+
+
+        <!-- Tambah Ternak Page -->
+        <!-- <child>
+          <object class="GtkStackPage" id="tambahTernakPage">
+            <property name="name">tambah_ternak</property>
+            <property name="title">Tambah Ternak</property>
+            <property name="child">
+              <object class="GtkLabel" id="label3">
+                <property name="label">Hello, World!</property>
+                <style>
+                  <class name="title-1"/>
+                </style>
+              </object>
+            </property>
+          </object>
+        </child> -->
+
+
+        <!-- Edit Ternak Page -->
+        <child>
+          <object class="GtkStackPage" id="editTernakPage">
+            <property name="name">edit_ternak</property>
+            <property name="title">Edit Ternak</property>
+            <property name="child">
+              <object class="GtkLabel" id="label4">
+                <property name="label">Hello, World!</property>
+                <style>
+                  <class name="title-1"/>
+                </style>
+              </object>
+            </property>
+          </object>
+        </child>
+
+
+        <!-- Delete Ternak Page -->
+        <child>
+          <object class="GtkStackPage" id="deleteTernakPage">
+            <property name="name">delete_ternak</property>
+            <property name="title">Delete Ternak</property>
+            <property name="child">
+              <object class="GtkLabel" id="label5">
+                <property name="label">Hello, World!</property>
+                <style>
+                  <class name="title-1"/>
+                </style>
+              </object>
+            </property>
+          </object>
+        </child>
+
+
+        <!-- Window Page -->
+        <child>
+          <object class="GtkStackPage" id="windowPage">
+            <property name="name">window</property>
+            <property name="title">Window</property>
+            <property name="child">
+              <object class="GtkLabel" id="label6">
+                <property name="label">Hello, World!</property>
+                <style>
+                  <class name="title-1"/>
+                </style>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+  <menu id="primary_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Preferences</attribute>
+        <attribute name="action">app.preferences</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+        <attribute name="action">win.show-help-overlay</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_About Aslis-GTK</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>

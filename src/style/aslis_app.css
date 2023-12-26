@@ -1,0 +1,57 @@
+.body{
+    background: linear-gradient(0deg, #093427, #041B15);
+}
+
+.buttons{
+    display: flex;
+    background-color: white;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.ternak{
+    background-color: #fff;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.refresh{
+    border-style: none;
+    background-image: none;
+    background: #fff;
+    margin-right: 20px;
+}
+
+.delete_ternak{
+    border-style: none;
+    background-image: none;
+    background: #fff;
+    margin-right: 20px;
+}
+
+.tambah_ternak{
+    border-style: none;
+    background-image: none;
+    background: #fff;
+    margin-right: 20px;
+}
+
+.kambing {
+    margin: auto;
+    display: block;
+    opacity: 0.5;
+}
