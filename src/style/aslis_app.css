@@ -3,7 +3,7 @@
 }
 
 .buttons{
-    background-color: #fff;
+    background-color: #52834b;
     margin-top: 30px;
     margin-bottom: 30px;
     margin-left: 20px;
@@ -51,4 +51,15 @@ GtkButton{
     background-image: none;
     background: #fff;
     margin-right: 20px;
+}
+
+.kambing {
+    margin: auto;
+    padding-top: 50px;
+    display: block;
+    opacity: 0.5;
+}
+
+.buttons {
+    color: aliceblue;
 }

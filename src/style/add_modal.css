@@ -2,9 +2,8 @@
     background: linear-gradient(0deg, #093427, #041B15);
 }
 
-.buttons{
+/* .main{
     background-color: #fff;
-    margin-top: 30px;
     margin-bottom: 30px;
     margin-left: 20px;
     margin-right: 20px;
@@ -13,42 +12,26 @@
     padding-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
-}
+} */
 
-.ternak{
-    background-color: #fff;
+.cancel{
+    color: aliceblue;
     margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: 20px;
-    margin-right: 20px;
-    border-radius: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    margin-left: 150px;
+    margin-right: 150px;
 }
 
-GtkButton{
-    background-image: none;
+.create{
+    margin-top: 20px;
+    margin-left: 150px;
+    margin-right: 150px;
 }
 
-.refresh{
-    border-style: none;
-    background-image: none;
-    background: #fff;
-    margin-right: 20px;
+.form{
+    margin-top: 20px;
 }
 
-.delete_ternak{
-    border-style: none;
-    background-image: none;
-    background: #fff;
-    margin-right: 20px;
-}
-
-.tambah_ternak{
-    border-style: none;
-    background-image: none;
-    background: #fff;
-    margin-right: 20px;
+.form label, .form entry, .form combobox {
+    width: 80%;
+    color: aliceblue;
 }

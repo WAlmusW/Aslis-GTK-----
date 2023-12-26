@@ -63,59 +63,19 @@
                         </child>
                       </object>
                     </child>
+                  <child>
+                    <object class="GtkImage">
+                      <style>
+                        <class name="kambing"/>
+                      </style>
+                      <property name="visible">true</property>
+                      <property name="file">src/images/ternak.png</property> <!-- Replace with your image file path -->
+                      <property name="width-request">500</property> <!-- Adjust the width as needed -->
+                      <property name="height-request">500</property>
+                    </object>
+                  </child>
                   </object>
                 </child>
-              </object>
-            </property>
-          </object>
-        </child>
-
-
-        <!-- Tambah Ternak Page -->
-        <!-- <child>
-          <object class="GtkStackPage" id="tambahTernakPage">
-            <property name="name">tambah_ternak</property>
-            <property name="title">Tambah Ternak</property>
-            <property name="child">
-              <object class="GtkLabel" id="label3">
-                <property name="label">Hello, World!</property>
-                <style>
-                  <class name="title-1"/>
-                </style>
-              </object>
-            </property>
-          </object>
-        </child> -->
-
-
-        <!-- Edit Ternak Page -->
-        <child>
-          <object class="GtkStackPage" id="editTernakPage">
-            <property name="name">edit_ternak</property>
-            <property name="title">Edit Ternak</property>
-            <property name="child">
-              <object class="GtkLabel" id="label4">
-                <property name="label">Hello, World!</property>
-                <style>
-                  <class name="title-1"/>
-                </style>
-              </object>
-            </property>
-          </object>
-        </child>
-
-
-        <!-- Delete Ternak Page -->
-        <child>
-          <object class="GtkStackPage" id="deleteTernakPage">
-            <property name="name">delete_ternak</property>
-            <property name="title">Delete Ternak</property>
-            <property name="child">
-              <object class="GtkLabel" id="label5">
-                <property name="label">Hello, World!</property>
-                <style>
-                  <class name="title-1"/>
-                </style>
               </object>
             </property>
           </object>

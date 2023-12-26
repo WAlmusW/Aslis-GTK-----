@@ -1,6 +1,7 @@
 // add_ternak_modal
 using Gtk;
 using GLib;
+using Gee;
 
 namespace AslisGtk {
     [GtkTemplate (ui = "/aslis/dpbo/id/pages/add_modal.ui")]
@@ -14,7 +15,7 @@ namespace AslisGtk {
         [GtkChild]
         private unowned Gtk.Entry beratTernakEntry;
         [GtkChild]
-        private unowned Gtk.Entry genderTernakEntry;
+        private unowned Gtk.ComboBoxText genderTernakComboBox;
         [GtkChild]
         private unowned Gtk.Entry tempatLahirTernakEntry;
 
@@ -35,6 +36,8 @@ namespace AslisGtk {
 
             Object(application: parentWindow.application);
             set_transient_for(parentWindow);
+
+            genderTernakComboBox.set_active (0);
             
             cancelButton.clicked.connect (cancelHandler);
 
@@ -46,13 +49,24 @@ namespace AslisGtk {
         }
 
         public void createHandler () {
+            ArrayList<string> genderList = new ArrayList<string>();
+            genderList.add("Pilih");
+            genderList.add("Jantan");
+            genderList.add("Betina");
+
             string nama = namaTernakEntry.text;
             string umur = umurTernakEntry.text;
             string berat = beratTernakEntry.text;
-            string gender = genderTernakEntry.text;
+            string gender = genderList[genderTernakComboBox.get_active()];
             string tempatLahir = tempatLahirTernakEntry.text;
 
-                // Check if any of the required fields is empty
+            // Check if "Pilih" is the one chosen
+            if (gender == "Pilih") {
+                resultLabel.set_text ("Please choose the gender");
+                return;
+            }
+
+            // Check if any of the required fields is empty
             if ((nama == null || nama.length == 0) || (umur == null || umur.length == 0) || 
                 (berat == null || berat.length == 0) || (gender == null || gender.length == 0) ||
                 (tempatLahir == null || tempatLahir.length == 0)) {

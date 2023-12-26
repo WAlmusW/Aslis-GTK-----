@@ -96,6 +96,7 @@ namespace AslisGtk {
                 Gtk.GridView grid_ternak = new Gtk.GridView(new Gtk.NoSelection(model), new Gtk.BuilderListItemFactory.from_resource(null, "/aslis/dpbo/id/pages/grid.ui"));
                 grid_ternak.set_min_columns(1);
                 grid_ternak.set_max_columns(1);
+                grid_ternak.add_css_class("grid_ternak");
     
                 // Add the GridView to the window
                 box_buttons.append(refresh_button);
@@ -135,7 +136,6 @@ namespace AslisGtk {
                 return true;
             });
         }
-
 
         public void refresh_handler () {
             pages.set_visible_child_name("blank");
