@@ -27,11 +27,42 @@
             <property name="title">List Ternak</property>
             <property name="child">
               <object class="GtkBox">
+                <style>
+                  <class name="body" />
+                </style>
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkButton" id="addButton">
-                    <property name="name">add-button</property>
-                    <property name="label">Add your new Ternak here</property>
+                  <object class="GtkBox">
+                    <style>
+                      <class name="main" />
+                    </style>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkBox">
+                        <style>
+                          <class name="buttons" />
+                        </style>
+                        <property name="orientation">horizontal</property>
+                        <child>
+                          <object class="GtkButton" id="addButton">
+                            <style>
+                              <class name="tambah_ternak" />
+                            </style>
+                            <property name="name">add-button</property>
+                            <property name="label">Add your new Ternak here</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="backButton">
+                            <style>
+                              <class name="refresh" />
+                            </style>
+                            <property name="name">refresh-button</property>
+                            <property name="label">Refresh</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>

@@ -63,23 +63,32 @@ namespace AslisGtk {
             GridTernakModel = new GridTernak ();
 
             Gtk.ScrolledWindow swin = new Gtk.ScrolledWindow ();
-            swin.add_css_class("scroll_win");
+            swin.add_css_class("body");
             pages.add_named(swin, "listTernakPage");
 
-            Gtk.Box outer_box = new Gtk.Box(Gtk.Orientation.VERTICAL, 10);
-            outer_box.add_css_class("outer_box");
+            Gtk.Box box_main = new Gtk.Box(Gtk.Orientation.VERTICAL, 10);
+            box_main.add_css_class("main");
 
-            Gtk.Box inner_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 5);
-            inner_box.set_hexpand(true);
-            inner_box.set_halign(Gtk.Align.FILL);
-            inner_box.add_css_class("inner_box");
+            Gtk.Box box_buttons = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 5);
+            box_buttons.set_hexpand(true);
+            box_buttons.set_halign(Gtk.Align.FILL);
+            box_buttons.add_css_class("buttons");
+
+            Gtk.Box box_ternak = new Gtk.Box(Gtk.Orientation.VERTICAL, 10);
+            box_ternak.set_hexpand(true);
+            box_ternak.set_halign(Gtk.Align.FILL);
+            box_ternak.add_css_class("ternak");
+
+            Gtk.Button refresh_button = new Gtk.Button.with_label("Refresh Tabel");
+            refresh_button.add_css_class ("refresh");
+            refresh_button.clicked.connect(refresh_handler);
 
             Gtk.Button delete_button = new Gtk.Button.with_label("Delete Tabel");
-            delete_button.add_css_class ("delete_button");
+            delete_button.add_css_class ("delete_ternak");
             delete_button.clicked.connect(delete_button_handler);
 
             Gtk.Button add_button = new Gtk.Button.with_label("Tambah Ternak");
-            delete_button.add_css_class ("add_button");
+            delete_button.add_css_class ("tambah_ternak");
             add_button.clicked.connect(add_button_handler);
 
             GLib.ListStore? model = GridTernakModel.readTernak();
@@ -89,11 +98,13 @@ namespace AslisGtk {
                 grid_ternak.set_max_columns(1);
     
                 // Add the GridView to the window
-                inner_box.append(delete_button);
-                inner_box.append(add_button);
-                outer_box.append(inner_box);
-                outer_box.append(grid_ternak);
-                swin.set_child(outer_box);
+                box_buttons.append(refresh_button);
+                box_buttons.append(delete_button);
+                box_buttons.append(add_button);
+                box_main.append(box_buttons);
+                box_ternak.append(grid_ternak);
+                box_main.append(box_ternak);
+                swin.set_child(box_main);
                 
                 return true;
             }
