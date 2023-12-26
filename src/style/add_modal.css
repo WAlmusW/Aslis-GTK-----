@@ -1,0 +1,26 @@
+.body{
+background: linear-gradient(0deg, #093427, #041B15);
+}
+.main{
+background-color: #fff;
+margin-bottom: 30px;
+margin-left: 20px;
+margin-right: 20px;
+border-radius: 20px;
+padding-top: 20px;
+padding-bottom: 20px;
+padding-left: 20px;
+padding-right: 20px;
+}
+.cancel{
+margin-left: 100px;
+margin-right: 100px;
+}
+.create{
+margin-left: 100px;
+margin-right: 100px;
+}
+.form{
+margin-top: 20px;
+margin-bottom: 20px;
+}

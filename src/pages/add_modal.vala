@@ -29,6 +29,10 @@ namespace AslisGtk {
         private unowned Gtk.Label resultLabel;
 
         public AddTernakModal (Gtk.Window parentWindow) {
+            var cssProvider = new Gtk.CssProvider ();
+            cssProvider.load_from_resource ("/aslis/dpbo/id/style/add_modal.css");
+            Gtk.StyleContext.add_provider_for_display (Gdk.Display.get_default (), cssProvider, 1);
+            
             Object(application: parentWindow.application);
             set_transient_for(parentWindow);
             
