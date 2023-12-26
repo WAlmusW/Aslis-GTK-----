@@ -10,6 +10,7 @@ namespace AslisGtk {
         // Model Instances
         private Login LoginModel;
         private Register RegisterModel;
+        private GridTernak GridTernakModel;
 
         // App Pages
         [GtkChild]
@@ -18,6 +19,12 @@ namespace AslisGtk {
         private unowned Gtk.StackPage loginPage;
         [GtkChild]
         private unowned Gtk.StackPage registerPage;
+        [GtkChild]
+        private unowned Gtk.StackPage homePage;
+        [GtkChild]
+        private unowned Gtk.StackPage listTernakPageEmpty;
+        [GtkChild]
+        private unowned Gtk.StackPage tambahTernakPage;
         [GtkChild]
         private unowned Gtk.StackPage windowPage;
 
@@ -55,10 +62,15 @@ namespace AslisGtk {
             // Initialized Model
             LoginModel = new Login ();
             RegisterModel = new Register ();
+            GridTernakModel = new GridTernak ();
             //  var WindowModel = new Window ();
 
+            // Set name for each pages
             registerPage.set_name("registerPage");
             loginPage.set_name("loginPage");
+            homePage.set_name("homePage");
+            listTernakPageEmpty.set_name("listTernakPageEmpty");
+            tambahTernakPage.set_name("tambahTernakPage");
             windowPage.set_name("windowPage");
 
             // Event Listener
@@ -71,55 +83,97 @@ namespace AslisGtk {
             });
 
             loginButton.clicked.connect (() => {
-                checkLogin ();
+                if (checkLogin ()) {
+                    if (this.build_grid()) {
+                        pages.set_visible_child_name("listTernakPage");
+                    } else {
+                        pages.set_visible_child_name("listTernakPageEmpty");
+                    }
+                }
             });
 
             registerButton.clicked.connect (() => {
-                registerAccount ();
+                if (registerAccount ()) {
+                    if (this.build_grid()) {
+                        pages.set_visible_child_name("listTernakPage");
+                    } else {
+                        pages.set_visible_child_name("listTernakPageEmpty");
+                    }
+                }
             });
         }
 
-        private void checkLogin () {
+        public bool build_grid () {
+            // Add GridView for List Ternak
+            Gtk.ScrolledWindow swin = new Gtk.ScrolledWindow ();
+            pages.add_named(swin, "listTernakPage");
+            Gtk.Box box = new Gtk.Box(Gtk.Orientation.VERTICAL, 3);
+            Gtk.Button back_btn = new Gtk.Button.with_label("Back");
+            back_btn.clicked.connect(back_btn_handler);
+            GLib.ListStore? model = GridTernakModel.readTernak(UserName);
+            if (model != null) {
+                Gtk.GridView grid_ternak = new Gtk.GridView(new Gtk.NoSelection(model), new Gtk.BuilderListItemFactory.from_resource(null, "/aslis/dpbo/id/pages/grid.ui"));
+                grid_ternak.set_min_columns(1);
+                grid_ternak.set_max_columns(1);
+    
+                // Add the GridView to the window
+                box.append(back_btn);
+                box.append(grid_ternak);
+                swin.set_child(box);
+                
+                return true;
+            }
+            return false;
+        }
+
+        private void back_btn_handler() {
+            pages.set_visible_child_name("");
+            pages.set_visible_child_name("listTernakPage");
+        }
+
+        private bool checkLogin () {
             string username = usernameEntry.text;
             string password = passwordEntry.text;
 
             if ((username == null || username.length == 0) || (password == null || password.length == 0)) {
                 resultLabel.set_label("Username and password are required!");
-                return;
+                return false;
             }
 
             // Check login credentials
             if (LoginModel.checkCredentials (username, password)) {
                 resultLabel.set_label("Login successful!");
                 UserName = username;
-                pages.set_visible_child_name("windowPage");
+                return true;
             } else {
                 resultLabel.set_label("Login failed. Please check your credentials.");
+                return false;
             }
         }
 
-        private void registerAccount () {
+        private bool registerAccount () {
             string username = usernameEntry_register.text;
             string password = passwordEntry_register.text;
     
             if ((username == null || username.length == 0) || (password == null || password.length == 0)) {
                 resultLabel.set_label("Username and password are required!");
-                return;
+                return false;
             }
     
             // Check if the account already exists
             if (RegisterModel.accountExists(username)) {
                 resultLabel.set_label("Account already exists. Choose a different username.");
-                return;
+                return false;
             }
     
             // Add the account to the database
             if (RegisterModel.addAccount(username, password)) {
                 resultLabel_register.set_label("Registration successful!");
                 UserName = username;
-                pages.set_visible_child_name("windowPage");
+                return true;
             } else {
                 resultLabel_register.set_label("Registration failed. Please try again.");
+                return false;
             }
         }
     }

@@ -272,13 +272,81 @@
         </child>
 
 
+        <!-- Home Page -->
+        <child>
+          <object class="GtkStackPage" id="homePage">
+            <property name="name">home</property>
+            <property name="title">Home</property>
+            <property name="child">
+              <object class="GtkLabel" id="label1">
+                <property name="label">Hello, World!</property>
+                <style>
+                  <class name="title-1"/>
+                </style>
+              </object>
+            </property>
+          </object>
+        </child>
+
+
+        <!-- List Ternak Page -->
+        <child>
+          <object class="GtkStackPage" id="listTernakPageEmpty">
+            <property name="name">list_ternak_empty</property>
+            <property name="title">List Ternak</property>
+            <property name="child">
+              <object class="GtkLabel" id="label2">
+                <property name="label">Hello, World!</property>
+                <style>
+                  <class name="title-1"/>
+                </style>
+              </object>
+            </property>
+          </object>
+        </child>
+
+
+        <!-- Tambah Ternak Page -->
+        <child>
+          <object class="GtkStackPage" id="tambahTernakPage">
+            <property name="name">tambah_ternak</property>
+            <property name="title">Tambah Ternak</property>
+            <property name="child">
+              <object class="GtkLabel" id="label3">
+                <property name="label">Hello, World!</property>
+                <style>
+                  <class name="title-1"/>
+                </style>
+              </object>
+            </property>
+          </object>
+        </child>
+
+
+                <!-- Edit Ternak Page -->
+        <child>
+          <object class="GtkStackPage" id="editTernakPage">
+            <property name="name">edit_ternak</property>
+            <property name="title">Edit Ternak</property>
+            <property name="child">
+              <object class="GtkLabel" id="label4">
+                <property name="label">Hello, World!</property>
+                <style>
+                  <class name="title-1"/>
+                </style>
+              </object>
+            </property>
+          </object>
+        </child>
+
+
         <!-- Window Page -->
         <child>
           <object class="GtkStackPage" id="windowPage">
             <property name="name">window</property>
             <property name="title">Window</property>
             <property name="child">
-              <object class="GtkLabel" id="label">
+              <object class="GtkLabel" id="label5">
                 <property name="label">Hello, World!</property>
                 <style>
                   <class name="title-1"/>

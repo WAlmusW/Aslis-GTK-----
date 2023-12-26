@@ -7,7 +7,7 @@ namespace AslisGtk {
             list_ternak = new Gee.ArrayList<Ternak>();
         }
 
-        public void add (int id, string nama, string umur, double berat, double gender, string tempat_lahir) {
+        public void add (int id, string nama, string umur, double berat, string gender, string tempat_lahir) {
             Ternak ternak = new Ternak(id, nama, umur, berat, gender, tempat_lahir);
             list_ternak.add(ternak);
         }

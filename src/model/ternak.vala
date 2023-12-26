@@ -5,10 +5,10 @@ namespace AslisGtk {
         public string nama;
         public string umur;
         public double berat;
-        public double gender;
+        public string gender;
         public string tempat_lahir;
 
-        public Ternak (int id, string nama, string umur, double berat, double gender, string tempat_lahir) {
+        public Ternak (int id, string nama, string umur, double berat, string gender, string tempat_lahir) {
             this.id = id;
             this.nama = nama;
             this.umur = umur;

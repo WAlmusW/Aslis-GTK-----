@@ -8,6 +8,7 @@ aslis_gtk_sources = [
   'model/sample.vala',
   'model/login.vala',
   'model/register.vala',
+  'model/grid_ternak.vala',
 ]
 
 aslis_gtk_deps = [
