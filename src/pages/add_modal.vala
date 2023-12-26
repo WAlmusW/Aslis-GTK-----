@@ -5,7 +5,6 @@ using GLib;
 namespace AslisGtk {
     [GtkTemplate (ui = "/aslis/dpbo/id/pages/add_modal.ui")]
     public class AddTernakModal : Gtk.ApplicationWindow {
-        private string UserName;
 
         // Entries
         [GtkChild]
@@ -29,11 +28,9 @@ namespace AslisGtk {
         [GtkChild]
         private unowned Gtk.Label resultLabel;
 
-        public AddTernakModal (string username, Gtk.Window parentWindow) {
+        public AddTernakModal (Gtk.Window parentWindow) {
             Object(application: parentWindow.application);
             set_transient_for(parentWindow);
-
-            UserName = username;
             
             cancelButton.clicked.connect (cancelHandler);
 
@@ -62,6 +59,7 @@ namespace AslisGtk {
 
             if (saveTernak(nama, umur, berat, gender, tempatLahir)) {
                 resultLabel.set_label("Insert Ternak succesful");
+                
                 this.close();
             } else {
                 resultLabel.set_label("Inserting Fail");
@@ -70,7 +68,7 @@ namespace AslisGtk {
         }
 
         public bool saveTernak (string nama, string umur, string berat, string gender, string tempatLahir) {
-            string path = "src/database/%s_ternak.csv".printf(UserName);
+            string path = "src/database/ternak.csv";
             File file = File.new_for_path (path);
 
             try {
@@ -103,7 +101,7 @@ namespace AslisGtk {
 
         public int getLastId () {
             try {
-                string path = "src/database/%s_ternak.csv".printf(UserName);
+                string path = "src/database/ternak.csv";
                 File file = File.new_for_path (path);
         
                 if (file.query_exists ()) {
